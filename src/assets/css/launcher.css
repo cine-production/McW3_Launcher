@@ -9,8 +9,8 @@ body {
     padding: 0;
     user-select: none;
     color: var(--color);
-    font-family: 'Conduit-ITC';
-    background-color: #7B7952;
+    font-family: 'Poppins';
+    font-weight: bolder;
 }
 
 img {
@@ -46,7 +46,6 @@ input::-webkit-inner-spin-button {
     -webkit-app-region: drag;
     z-index: 11;
     display: none;
-    background: linear-gradient(180deg, #00cfb266, #00000000), linear-gradient(to right, rgb(0, 0, 0) 0.6px, transparent 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 40%) 0.6px, transparent 0.6px);
 }
 
 .frame {
@@ -85,10 +84,7 @@ input::-webkit-inner-spin-button {
 }
 
 .icon-close:hover {
-    background: url(../images/cyz02b4f.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 3px;
+    background: #e21212;
 }
 
 .icon-minimize:hover,
@@ -109,21 +105,18 @@ input::-webkit-inner-spin-button {
 }
 
 .popup-tab {
-    width: 26rem;
+    width: 40%;
+    padding: 15px;
     background: var(--background);
+    border-radius: 15px;
     z-index: 10;
-    border-style: none;
-    min-height: 9rem;
 }
 
 .popup-title {
-    font-size: 1.3rem;
-    background: url(../images/pointille.png);
-    background-size: 55px;
-    margin: 0px 0px 0px 0px;
-    padding: 0rem 0rem 0rem 0.5rem;
-    font-weight: 400;
-    background-color: #0a0a0a9e;
+    text-align: center;
+    font-size: 2rem;
+    border-bottom: solid 4px var(--color);
+    margin-bottom: 1rem;
 }
 
 .popup-options {
@@ -133,31 +126,14 @@ input::-webkit-inner-spin-button {
 }
 
 .popup-button {
-    background: url(../images/background-btn1.png) #ffffff00;
+    background: none;
     color: var(--color);
-    font-size: larger;
-    width: 100%;
-    background-size: contain;
-    height: 2.5rem;
-    background-repeat: no-repeat;
-    border-style: none;
-    background-position: center;
-    cursor: pointer;
-    box-shadow: 0px 0px 20px -9px #7B7952;
-    font-family: 'Conduit-ITC';
-    letter-spacing: 1px;
-}
-
-.content-all {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    height: 100%;
-    border-color: #80808052;
-    border-width: thin;
-    border-style: solid;
-    padding: 8px 7px 7px;
-    background: var(--background);
+    border: solid 4px var(--element-color);
+    border-radius: 10px;
+    padding: 0.3rem 4rem;
+    font-size: inherit;
+    font-weight: bold;
+    margin: 15px 10px;
 }
 
 .panel {
@@ -173,37 +149,4 @@ input::-webkit-inner-spin-button {
     opacity: 1;
     z-index: 1;
     pointer-events: all;
-}
-
-.loadscreen {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    position: absolute;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-}
-
-#logo {
-    opacity: 0;
-    transition: opacity 0.4s ease-in;
-    transition: opacity 1s ease-out;
-    animation: scale 6s ease-in-out;
-    scale: 1.6;
-    width: 50%;
-}
-
-@keyframes scale {
-    0% {
-        scale: 1.6;
-    }
-    18% {
-        scale: 0.5;
-    }
-    100% {
-        scale: 0.4;
-    }
 }
