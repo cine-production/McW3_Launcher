@@ -1,5 +1,5 @@
 /**
- * @author Luuxis
+ * @author Adimarcel2006
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 
@@ -30,9 +30,15 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Je... vie...", "author": "Luuxis" },
-            { "message": "Salut je suis du code.", "author": "Luuxis" },
-            { "message": "Linux n'est pas un os, mais un kernel.", "author": "Luuxis" }
+            { "message": "Aucune pitié !", "author": "Adimarcel2006" },
+            { "message": "Pas de quartiers, juste de l'action.", "author": "Adimarcel2006" },
+            { "message": "Sans relâche, vers la victoire.", "author": "Adimarcel2006" },
+            { "message": "Battez-vous où mourrez !", "author": "MedixAlex" },
+            { "message": "", "author": "MedixAlex" },
+            { "message": "", "author": "MedixAlex" },
+            { "message": "", "author": "Otashi" },
+            { "message": "", "author": "Otashi" },
+            { "message": "", "author": "Otashi" }
         ];
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
@@ -51,35 +57,33 @@ class Splash {
     }
 
     async checkUpdate() {
-        this.setStatus(`Recherche de mise à jour...`);
-
-        ipcRenderer.invoke('update-app').then().catch(err => {
-            return this.shutdown(`erreur lors de la recherche de mise à jour :<br>${err.message}`);
-        });
-
-        ipcRenderer.on('updateAvailable', () => {
-            this.setStatus(`Mise à jour disponible !`);
-            if (os.platform() == 'win32') {
-                this.toggleProgress();
-                ipcRenderer.send('start-update');
+        try {
+            const response = await fetch('https://cine-production.github.io/ServiceTiers/BASEDONNEE/McW3/newUpdate.txt');
+            const text = await response.text();
+            const lines = text.trim().split(/\r?\n/); // Utilisation d'une expression régulière pour gérer différents types de sauts de ligne
+    
+            if (lines.length >= 2) {
+                const updateStatus = lines[0].toLowerCase().trim();
+                const newVersion = lines[1].trim();
+    
+                if (updateStatus === 'yes' && newVersion !== pkg.version) {
+                    alert(`Une nouvelle version du launcher (${newVersion}) est disponible en téléchargement. Veuillez mettre à jour.`);
+                    ipcRenderer.send('update-window-close');
+                } else {
+                    this.startLauncher();
+                }
+            } else {
+                console.error("Le fichier de mise à jour est mal formaté.");
+                this.startLauncher();
             }
-            else return this.dowloadUpdate();
-        })
-
-        ipcRenderer.on('error', (event, err) => {
-            if (err) return this.shutdown(`${err.message}`);
-        })
-
-        ipcRenderer.on('download-progress', (event, progress) => {
-            ipcRenderer.send('update-window-progress', { progress: progress.transferred, size: progress.total })
-            this.setProgress(progress.transferred, progress.total);
-        })
-
-        ipcRenderer.on('update-not-available', () => {
-            console.error("Mise à jour non disponible");
-            this.maintenanceCheck();
-        })
+        } catch (error) {
+            console.error('Erreur lors de la vérification des mises à jour:', error);
+            this.startLauncher();
+        }
     }
+    
+    
+    
 
     getLatestReleaseForOS(os, preferredFormat, asset) {
         return asset.filter(asset => {

@@ -34,6 +34,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Conduit-ITC';
+    src: url('../fonts/itc/ConduitITC-Light.woff2') format('woff2');
+    font-style: normal;
+    font-display: swap;
+}
+
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
     font-style: normal;

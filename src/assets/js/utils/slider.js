@@ -1,5 +1,5 @@
 /**
- * @author Luuxis
+ * @author Adimarcel2006
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
  */
 

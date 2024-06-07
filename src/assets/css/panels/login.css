@@ -8,10 +8,12 @@
 .login-tabs {
     position: absolute;
     padding: 15px;
-    background: var(--background);
-    border-radius: 15px;
     text-align: center;
     min-width: 40%;
+    background: linear-gradient(270deg, #464646, #4a4a4a, #282828), linear-gradient(to right, rgb(0 0 0 / 10%) 0.6px, rgb(0 0 0 / 10%) 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 10%) 0.6px, transparent 0.6px);
+    background-blend-mode: overlay;
+    background-size: 100%, 2px 2px, 2px 2px;
+    border: solid 1px #414141;
 }
 
 .login-home,
@@ -25,16 +27,20 @@
     font-size: 1.3rem;
 }
 
-.connect,
-.cancel {
-    background: none;
+.connect, .cancel {
     color: var(--color);
-    border: solid 4px var(--element-color);
-    border-radius: 10px;
-    padding: 0.3rem 4rem;
+    padding: 0.5rem 4rem;
     font-size: inherit;
     font-weight: bold;
     margin: 15px 10px;
+    border-left: solid thin gold;
+    border-right: solid thin gold;
+    border-top: none;
+    border-bottom: none;
+    background: linear-gradient(270deg, #cfb70066, #7272720f, #dfc50078), linear-gradient(to right, rgb(0 0 0 / 10%) 0.6px, rgb(0 0 0 / 10%) 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 10%) 0.6px, transparent 0.6px);
+    background-blend-mode: overlay;
+    background-size: 100%, 2px 2px, 2px 2px;
+    cursor: pointer;
 }
 
 .input-login .email,
