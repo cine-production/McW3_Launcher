@@ -1,7 +1,7 @@
 {
     "name": "launcher-mcw3",
     "preductname": "McW3 Launcher",
-    "version": "2.0.61",
+    "version": "2.0.61.2",
     "description": "Launcher Mincraft pour le serveur McW3 et Warzone",
     "main": "src/app.js",
     "author": {
