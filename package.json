@@ -18,6 +18,17 @@
         "build:mac": "node build.js --build=mac",
         "icon": "node build.js --icon=https://cine-production.github.io/ServiceTiers/BASEDONNEE/Serveur%20MC/McW3/McW3.png"
     },
+    "build": {
+        "mac": {
+            "target": [
+                "dmg",
+                "zip"
+            ],
+            "minimumSystemVersion": "10.13.6",
+            "hardenedRuntime": true,
+            "entitlements": "entitlements.mac.plist"
+        }
+    },
     "license": "CCANC",
     "nodemonConfig": {
         "ext": "js,html,css",
