@@ -58,7 +58,7 @@ class Splash {
 
     async checkUpdate() {
         try {
-            const response = await fetch('https://cine-production.github.io/ServiceTiers/BASEDONNEE/McW3/newUpdate.txt');
+            const response = await fetch('https://cine-production.github.io/ServiceTiers/BASEDONNEE/Wonder/newUpdate.txt');
             const text = await response.text();
             const lines = text.trim().split(/\r?\n/); // Utilisation d'une expression régulière pour gérer différents types de sauts de ligne
     

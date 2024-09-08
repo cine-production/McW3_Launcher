@@ -1,22 +1,22 @@
 {
-    "name": "launcher-mcw3",
-    "preductname": "McW3 Launcher",
-    "version": "2.0.62",
-    "description": "Launcher Mincraft pour le serveur McW3 et Warzone",
+    "name": "Wonder-Launcher",
+    "preductname": "Wonder Launcher",
+    "version": "1.0.1",
+    "description": "Venez vous évader dans un nuage de plaisir sur le serveur Wonder !",
     "main": "src/app.js",
     "author": {
         "name": "Adimarcel2006, Inc.",
         "email": "adimarcel67@gmail.com",
         "url": "https://github.com/cine-production"
     },
-    "url": "http://mcw3.servicetiers.fr",
+    "url": "http://wonder.servicetiers.fr",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=true --build=platform",
         "build:win": "node build.js --build=windows",
         "build:mac": "node build.js --build=mac",
-        "icon": "node build.js --icon=https://cine-production.github.io/ServiceTiers/BASEDONNEE/Serveur%20MC/McW3/McW3.png"
+        "icon": "node build.js --icon=https://cine-production.github.io/ServiceTiers/BASEDONNEE/Serveur%20MC/logo%20wonder.png"
     },
     "build": {
         "mac": {
@@ -55,6 +55,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/cine-production/McW3_Launcher.git"
+        "url": "git+https://github.com/cine-production/Wonder_Launcher.git"
     }
 }
