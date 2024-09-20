@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    backdrop-filter: brightness(0.7) blur(6px);
 }
 
 .login-tabs {
@@ -10,10 +11,12 @@
     padding: 15px;
     text-align: center;
     min-width: 40%;
-    background: linear-gradient(270deg, #464646, #4a4a4a, #282828), linear-gradient(to right, rgb(0 0 0 / 10%) 0.6px, rgb(0 0 0 / 10%) 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 10%) 0.6px, transparent 0.6px);
-    background-blend-mode: overlay;
+    background: linear-gradient(8deg, #c38eb4, #26425a), linear-gradient(to right, rgb(0 0 0 / 10%) 0.6px, rgb(0 0 0 / 10%) 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 10%) 0.6px, transparent 0.6px);
+    /* background-blend-mode: overlay; */
     background-size: 100%, 2px 2px, 2px 2px;
-    border: solid 1px #414141;
+    border: solid 3px #072e33;
+    border-radius: 16px;
+    font-family: 'Poppins';
 }
 
 .login-home,
@@ -28,19 +31,15 @@
 }
 
 .connect, .cancel {
-    color: var(--color);
+    color: #000000;
     padding: 0.5rem 4rem;
     font-size: inherit;
     font-weight: bold;
     margin: 15px 10px;
-    border-left: solid thin gold;
-    border-right: solid thin gold;
-    border-top: none;
-    border-bottom: none;
-    background: linear-gradient(270deg, #cfb70066, #7272720f, #dfc50078), linear-gradient(to right, rgb(0 0 0 / 10%) 0.6px, rgb(0 0 0 / 10%) 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 10%) 0.6px, transparent 0.6px);
-    background-blend-mode: overlay;
-    background-size: 100%, 2px 2px, 2px 2px;
     cursor: pointer;
+    background-color: #ffd567;
+    border: none;
+    border-radius: 10px;
 }
 
 .input-login .email,

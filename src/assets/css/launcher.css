@@ -9,9 +9,11 @@ body {
     padding: 0;
     user-select: none;
     color: var(--color);
-    font-family: 'Conduit-ITC';
+    font-family: 'system-ui';
     background-color: #7B7952;
 }
+
+
 
 img {
     -webkit-user-drag: none;
@@ -46,7 +48,7 @@ input::-webkit-inner-spin-button {
     -webkit-app-region: drag;
     z-index: 11;
     display: none;
-    background: linear-gradient(180deg, #00cfb266, #00000000), linear-gradient(to right, rgb(0, 0, 0) 0.6px, transparent 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 40%) 0.6px, transparent 0.6px);
+    
 }
 
 .frame {
@@ -84,16 +86,10 @@ input::-webkit-inner-spin-button {
     color: #f8f9f9;
 }
 
-.icon-close:hover {
-    background: url(../images/cyz02b4f.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 3px;
-}
-
 .icon-minimize:hover,
 .icon-restore-down:hover,
-.icon-maximize:hover {
+.icon-maximize:hover,
+.icon-close:hover {
     background-color: #0000009d;
 }
 
@@ -167,6 +163,7 @@ input::-webkit-inner-spin-button {
     opacity: 0;
     z-index: 0;
     pointer-events: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .active {
@@ -185,6 +182,7 @@ input::-webkit-inner-spin-button {
     align-items: center;
     justify-content: center;
     opacity: 1;
+    transition: all 1s ease-in-out;
 }
 
 #logo {

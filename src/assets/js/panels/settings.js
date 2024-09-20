@@ -32,8 +32,8 @@ class Settings {
                     if (activeSettingsBTN) activeSettingsBTN.classList.toggle('active-settings-BTN');
                     document.querySelector('#account').classList.add('active-settings-BTN');
 
-                    if (activeContainerSettings) activeContainerSettings.classList.toggle('active-container-settings');
-                    document.querySelector(`#account-tab`).classList.add('active-container-settings');
+                    if (activeContainerSettings) activeContainerSettings.classList.toggle('active-container-accounts');
+                    document.querySelector(`#account-tab`).classList.add('active-container-accounts');
                     return changePanel('home')
                 }
 
@@ -42,9 +42,25 @@ class Settings {
 
                 if (activeContainerSettings) activeContainerSettings.classList.toggle('active-container-settings');
                 document.querySelector(`#${id}-tab`).classList.add('active-container-settings');
-            }
-        })
+                document.querySelector(`#${id}-tab`).classList.add('containerSettingEffect');
+            } 
+        });
+
+        document.querySelector('.nav-settings-acceuil').addEventListener('click', () => {
+            let activeSettingsBTN = document.querySelector('.active-settings-BTN');
+            let activeContainerSettings = document.querySelector('.active-container-settings');
+    
+            if (activeSettingsBTN) activeSettingsBTN.classList.remove('active-settings-BTN');
+            document.querySelector('#account').classList.add('active-settings-BTN');
+    
+            if (activeContainerSettings) activeContainerSettings.classList.remove('active-container-accounts');
+            document.querySelector(`#account-tab`).classList.add('active-container-accounts');
+    
+            // Retour à l'accueil
+            changePanel('home');
+        });
     }
+
 
     accounts() {
         document.querySelector('.accounts-list').addEventListener('click', async e => {

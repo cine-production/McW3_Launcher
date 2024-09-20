@@ -1,18 +1,54 @@
 .settings .container {
     display: flex;
     height: 100%;
+    flex-direction: column;
+}
+
+.settings {
+    backdrop-filter: blur(12px);
+    transition: all 0.2s ease-in-out;
+}
+
+.vertical-hr {
+    width: 30px;
+    height: 0.5px;
+    background-color: #b9b9b9;
+    border: none;
+    transform: rotate(90deg);
+    margin: 0;
+}
+
+.navAcceuil {
+    background: #00000082;
+    display: flex;
+    width: 100%;
+    height: 3rem;
+    border-bottom: solid thin;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 100;
+    word-spacing: 0.5rem;
+}
+
+.navAcceuil .nav-settings-acceuil {
+    font-size: large;
+    padding: 2rem;
+}
+
+.navAcceuil p {
+    font-size: large;
+    margin: 0;
 }
 
 .nav-settings {
     width: 20%;
     height: 100%;
-    background: var(--background);
+    background: #0a0a0a8c;
     display: flex;
+    font-size: 2.5rem;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
-    font-size: 2.5rem;
-    box-shadow: inset 0px 0px 12px 0px rgba(135, 255, 245, 0.46);
+    padding-top: 6rem;
 }
 
 .nav-settings p {
@@ -27,45 +63,23 @@
     align-items: center;
 }
 
-.nav-box #save {
-    margin: 3rem;
-    border-left-style: double;
-    border-top: none;
-    border-bottom: none;
-    border-width: initial;
-    background: linear-gradient(270deg, #72630057, #7272720f, #fff65d2b), linear-gradient(to right, rgb(0, 0, 0) 0.6px, transparent 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 40%) 0.6px, transparent 0.6px);
-    height: 1.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-color: #ecc70075;
-}
-
 .nav-settings-btn {
     font-size: 50%;
-    padding: 5px 10px;
     width: 70%;
-    text-align: center;
-    margin: 0.5rem 0;
+    text-align: left;
+    margin: 0.6rem 0;
     cursor: pointer;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-width: thin;
-    border-color: gray;
-    background: linear-gradient(270deg, #59595957, #7272720f, #c2c2c22b), linear-gradient(to right, rgb(0, 0, 0) 0.6px, transparent 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 40%) 0.6px, transparent 0.6px);
-    background-blend-mode: overlay;
-    background-size: 100%, 2px 2px, 2px 2px;
-    transition: all 0.1s ease-in-out;
+    font-weight: 100;
+    transition: transform 0.2s ease-in-out;
+    transition-property: all;
+    color: #939393;
 }
 
 .active-settings-BTN {
-    border-color: aqua;
-    background: linear-gradient(270deg, #00bcb057, #7272720f, #77f4ff2b), linear-gradient(to right, rgb(0, 0, 0) 0.6px, transparent 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 40%) 0.6px, transparent 0.6px);
-    height: 2rem;
-    align-items: center;
-    justify-content: center;
     display: flex;
-    border-width: medium;
+    font-weight: 100;
+    transform: translateX(1.5vw);
+    color: white;
 }
 
 .container-settings {
@@ -97,22 +111,45 @@
     opacity: 1;
     z-index: 1;
     pointer-events: all;
+    background: #1a1a1a61;
+    height: -webkit-fill-available;
+    top: 3.1rem;
 }
+
+.active-container-accounts {
+    opacity: 1;
+    z-index: 1;
+    pointer-events: all;
+    height: -webkit-fill-available;
+    top: 3.1rem;
+}
+
+.containerSetting {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* transform: translateY(30%);
+    opacity: 0; */
+    transition: all 0.1s ease-in-out;
+}
+
+/* .containerSettingEffect {
+    transform: translateY(0);
+    opacity: 1;
+} */
 
 .titre-tab {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
+    font-size: 1.2rem;
     margin: 1.5rem 0;
-    padding: 0.5rem 2rem;
+    padding: 0.3rem 0.6rem;
     text-align: center;
-    color: var(--color);
-    border-left: solid 1px aqua;
-    border-right: solid 1px aqua;
-    background: linear-gradient(270deg, #00cfa166, #7272720f, #0ed7c669), linear-gradient(to right, rgb(0 0 0 / 10%) 0.6px, rgb(0 0 0 / 10%) 0.6px), linear-gradient(to bottom, rgb(0 0 0 / 10%) 0.6px, transparent 0.6px);
-    background-blend-mode: overlay;
-    background-size: 100%, 2px 2px, 2px 2px;
+    color: #c5c5c5;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: solid grey thin;
+    font-weight: 100;
+    width: 88%;
 }
 
 .settings-elements {
@@ -138,9 +175,10 @@
 .accounts-list {
     max-height: 90%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
 }
 
 .account {
