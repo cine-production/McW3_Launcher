@@ -19,24 +19,34 @@ async function setBackground(theme) {
     if (typeof theme == 'undefined') {
         let databaseLauncher = new database();
         let configClient = await databaseLauncher.readData('configClient');
-        theme = configClient?.launcher_config?.theme || "auto"
-        theme = await ipcRenderer.invoke('is-dark-theme', theme).then(res => res)
+        theme = configClient?.launcher_config?.theme || "auto";
+        theme = await ipcRenderer.invoke('is-dark-theme', theme).then(res => res);
     }
-    let background
+
     let body = document.body;
     body.className = theme ? 'dark global' : 'light global';
-    if (fs.existsSync(`${__dirname}/assets/images/background/easterEgg`) && Math.random() < 0.005) {
-        let backgrounds = fs.readdirSync(`${__dirname}/assets/images/background/easterEgg`);
-        let Background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-        background = `url(./assets/images/background/easterEgg/${Background})`;
-    } else if (fs.existsSync(`${__dirname}/assets/images/background/${theme ? 'dark' : 'light'}`)) {
-        let backgrounds = fs.readdirSync(`${__dirname}/assets/images/background/${theme ? 'dark' : 'light'}`);
-        let Background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-        background = `linear-gradient(#00000080, #00000080), url(./assets/images/background/${theme ? 'dark' : 'light'}/${Background})`;
+
+    let backgroundUrl;
+    if (Math.random() < 0.005) {
+        // Easter Egg: Charger une image spécifique depuis le répertoire easterEgg sur le serveur
+        let easterEggUrl = 'https://wonder.servicetiers.fr/launcher/img/background/easterEgg/';
+        let easterEggImages = ['background2.png', 'background1.png']; // Remplacer par les noms réels des fichiers
+        let randomEasterEggImage = easterEggImages[Math.floor(Math.random() * easterEggImages.length)];
+        backgroundUrl = `${easterEggUrl}${randomEasterEggImage}`;
+    } else {
+        // Charger selon le thème (clair ou sombre) directement depuis l'URL
+        let baseUrl = `https://wonder.servicetiers.fr/launcher/img/background/${theme ? 'dark' : 'light'}/`;
+        let images = ['background2.png', 'background1.png']; // Remplacer par les noms réels des fichiers
+        let randomImage = images[Math.floor(Math.random() * images.length)];
+        backgroundUrl = `${baseUrl}${randomImage}`;
     }
-    body.style.backgroundImage = background ? background : theme ? '#000' : '#fff';
+
+    // Appliquer le fond téléchargé
+    body.style.backgroundImage = backgroundUrl ? `linear-gradient(#00000080, #00000080), url(${backgroundUrl})` : theme ? '#000' : '#fff';
     body.style.backgroundSize = 'cover';
 }
+
+
 
 async function changePanel(id) {
     let panel = document.querySelector(`.${id}`);

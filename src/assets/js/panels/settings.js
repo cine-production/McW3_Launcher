@@ -268,7 +268,7 @@ class Settings {
         })
 
         let themeBox = document.querySelector(".theme-box");
-        let theme = configClient?.launcher_config?.theme || "auto";
+        let theme = configClient?.launcher_config?.theme || "dark";
 
         if (theme == "auto") {
             document.querySelector('.theme-btn-auto').classList.add('active-theme');

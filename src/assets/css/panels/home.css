@@ -17,9 +17,14 @@
   }
 
 
+.imgLogoWonder {
+    max-width: 30%;
+}
 
-
-
+.imgLogoDisney {
+    max-width: 12%;
+    margin: 10px;
+}
 
 
 

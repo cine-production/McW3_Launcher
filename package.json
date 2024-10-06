@@ -1,7 +1,7 @@
 {
     "name": "Wonder-Launcher",
     "preductname": "Wonder Launcher",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "description": "Venez vous évader dans un nuage de plaisir sur le serveur Wonder !",
     "main": "src/app.js",
     "author": {
